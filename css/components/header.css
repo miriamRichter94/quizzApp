@@ -1,6 +1,15 @@
+@import "../styles.css";
+@import "card.css";
+@import "button.css";
+@import "footer.css";
+
 header {
   display: flex;
+  position: fixed;
   justify-content: center;
   background-color: #13914c;
+  box-shadow: 2px 2px darkslategray;
   height: 70px;
+  width: 100%;
+  max-width: 1000px;
 }
