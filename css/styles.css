@@ -1,10 +1,13 @@
-@import "components/button.css";
-@import "components/header.css";
-@import "components/card.css";
+body {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0;
+  background: #201519;
+}
 
 main {
   gap: 20px;
-  padding-top: 10px;
+  padding-top: 100px;
 }
 
 .flexContainer {
