@@ -1,0 +1,21 @@
+.quizzCard {
+  align-self: center;
+  border: 2px black solid;
+  width: 500px;
+  height: 300px;
+}
+
+.cardQuestion {
+  align-self: center;
+  font-size: 30px;
+  font-style: oblique;
+  font-weight: bold;
+  text-align: center;
+  padding: 5px;
+}
+
+.cardAnswer {
+  align-self: center;
+  font-size: 25px;
+  font-style: oblique;
+}

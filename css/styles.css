@@ -1,0 +1,14 @@
+@import "components/button.css";
+@import "components/header.css";
+@import "components/card.css";
+
+main {
+  gap: 20px;
+  padding-top: 10px;
+}
+
+.flexContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
