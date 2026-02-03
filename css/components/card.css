@@ -1,5 +1,6 @@
 .quizzCard {
   align-self: center;
+  position: relative;
   background: linear-gradient(to bottom right, #5f8379, white);
   border: 2px black solid;
   width: 500px;
@@ -34,4 +35,10 @@ p {
   padding-top: 5px;
   width: 100px;
   height: 30px;
+}
+
+.bookMark {
+  position: absolute;
+  right: -20px;
+  top: -20px;
 }

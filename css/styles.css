@@ -8,6 +8,7 @@ body {
 main {
   gap: 20px;
   padding-top: 100px;
+  padding-bottom: 80px;
 }
 
 .flexContainer {
