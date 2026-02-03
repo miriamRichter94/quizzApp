@@ -4,12 +4,26 @@
 @import "footer.css";
 
 header {
+  z-index: 1;
   display: flex;
   position: fixed;
-  justify-content: center;
+  flex-direction: column;
   background-color: #13914c;
   box-shadow: 2px 2px darkslategray;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
   height: 70px;
   width: 100%;
   max-width: 1000px;
+}
+
+header > h1 {
+  align-self: center;
+  margin-top: 2px;
+  margin-bottom: 0;
+}
+
+header > h2 {
+  align-self: center;
+  margin: 0;
 }
