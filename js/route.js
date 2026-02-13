@@ -5,9 +5,26 @@ import { loadCards } from "./cards.js";
  * Works as lookup table.
  */
 const routes = {
-  home: { title: "Home", page: "pages/home.html" },
-  bookmarks: { title: "Bookmarks", page: "pages/bookmark.html" },
-  profile: { title: "Profile", page: "pages/profile.html" },
+  home: {
+    title: "Home",
+    page: "pages/home.html",
+    linkImg: "assets/menu/home_active.png",
+  },
+  bookmarks: {
+    title: "Bookmarks",
+    page: "pages/bookmark.html",
+    linkImg: "assets/menu/bookmark_active.png",
+  },
+  question: {
+    title: "Create Question",
+    page: "pages/question.html",
+    linkImg: "assets/menu/question_active.png",
+  },
+  profile: {
+    title: "Profile",
+    page: "pages/profile.html",
+    linkImg: "assets/menu/user_active.png",
+  },
 };
 
 /*
@@ -47,4 +64,22 @@ export async function loadPage(route) {
   if (route === "home" || route === "bookmarks") {
     loadCards(route); // Your function here
   }
+  updateLinkImage(route);
+}
+
+// Setting the right Icon active
+function updateLinkImage(route) {
+  document.querySelector('[data-js="home-picture"]').src =
+    "assets/menu/home.png";
+  document.querySelector('[data-js="bookmarks-picture"]').src =
+    "assets/menu/bookmark.png";
+  document.querySelector('[data-js="question-picture"]').src =
+    "assets/menu/question.png";
+  document.querySelector('[data-js="profile-picture"]').src =
+    "assets/menu/user.png";
+
+  const linkImage = document.querySelector(`[data-js="${route}-picture"]`);
+  const routeConfig = routes[route];
+
+  linkImage.src = routeConfig.linkImg;
 }
