@@ -10,3 +10,11 @@ footer {
   border-top-left-radius: 50px;
   border-top-right-radius: 50px;
 }
+
+a > img {
+  border-radius: 50%;
+}
+
+a > img:hover {
+  box-shadow: 10px 10px 10px darkgreen;
+}
