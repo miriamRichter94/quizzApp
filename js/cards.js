@@ -42,17 +42,27 @@ const imgSrc = {
   false: "assets/ribbonWhite.png",
 };
 
+const mainContainer = document.querySelector('[data-js="card-container"]');
+
 export function loadCards(route) {
-  const mainContainer = document.querySelector('[data-js="card-container"]');
+  let cardIndex = 0;
 
   for (const card of cards) {
     if (route == "home" || (route == "bookmarks" && card.bookmarked)) {
       const section = document.createElement("section");
       section.classList.add("quizzCard", "flexContainer");
+      section.dataset.index = cardIndex;
+
+      const bookMarkButton = document.createElement("button");
+      bookMarkButton.setAttribute("data-js", `bookMarkButton`);
+      bookMarkButton.classList.add("bookMark");
+      bookMarkButton.style.backgroundColor = "transparent";
+      bookMarkButton.style.border = "none";
 
       const bookMarkImg = document.createElement("img");
-      bookMarkImg.classList.add("bookMark");
       bookMarkImg.src = imgSrc[card.bookmarked];
+      bookMarkImg.setAttribute("data-js", "bookMarkImg");
+      bookMarkButton.append(bookMarkImg);
 
       const cardQuestion = document.createElement("div");
       cardQuestion.classList.add("cardQuestion");
@@ -63,6 +73,7 @@ export function loadCards(route) {
       cardAnswer.textContent = card.answer;
 
       const answerButton = document.createElement("button");
+      answerButton.classList.add("show-answer");
       answerButton.textContent = "Show answer";
 
       const tagsBox = document.createElement("div");
@@ -70,7 +81,7 @@ export function loadCards(route) {
 
       mainContainer.append(section);
       section.append(
-        bookMarkImg,
+        bookMarkButton,
         cardQuestion,
         cardAnswer,
         answerButton,
@@ -83,5 +94,23 @@ export function loadCards(route) {
         tagsBox.append(tagElement);
       }
     }
+    cardIndex++;
   }
 }
+
+// Bookmark functionallity.
+mainContainer.addEventListener("click", (event) => {
+  const bookMarkButton = event.target.closest('[data-js="bookMarkButton"]');
+
+  if (bookMarkButton) {
+    // Find THIS button's parent card
+    const card = bookMarkButton.closest(".quizzCard"); // ← This finds the specific card!
+    const index = card.dataset.index;
+
+    cards[index].bookmarked = !cards[index].bookmarked;
+
+    // Changing the Bookmark button Image
+    const img = bookMarkButton.querySelector('[data-js="bookMarkImg"]');
+    img.src = imgSrc[cards[index].bookmarked];
+  }
+});
