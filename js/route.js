@@ -1,4 +1,5 @@
 import { loadCards } from "./cards.js";
+import { initProfile } from "./profile.js";
 
 /*
  * Configuration of routes for easy access to change
@@ -24,6 +25,7 @@ const routes = {
     title: "Profile",
     page: "pages/profile.html",
     linkImg: "assets/menu/user_active.png",
+    init: initProfile,
   },
 };
 
@@ -64,6 +66,12 @@ export async function loadPage(route) {
   if (route === "home" || route === "bookmarks") {
     loadCards(route); // Your function here
   }
+
+  // Call init function if it exists
+  if (config.init) {
+    config.init(); // ← This runs AFTER HTML is loaded!
+  }
+
   updateLinkImage(route);
 }
 

@@ -1,7 +1,12 @@
 .quizzCard {
   align-self: center;
+  color: var(--card-text);
   position: relative;
-  background: linear-gradient(to bottom right, #5f8379, white);
+  background: linear-gradient(
+    to bottom right,
+    var(--gradient-color-1),
+    var(--gradient-color-2)
+  );
   border: 2px black solid;
   width: 500px;
   height: 300px;
@@ -22,15 +27,16 @@
   font-style: oblique;
 }
 
-.tagsBox {
+.tags-container {
   flex-direction: row;
   justify-content: space-around;
 }
 
-p {
-  border: 1px darkslategrey solid;
-  background-color: lightgray;
-  box-shadow: 2px 2px grey;
+.tag-box {
+  color: var(--tags-color);
+  border: 1px var(--tags-border) solid;
+  background-color: var(--tags-background);
+  box-shadow: 2px 2px var(--tags-shadow);
   text-align: center;
   padding-top: 5px;
   width: 100px;

@@ -4,7 +4,7 @@ footer {
   justify-content: space-evenly;
   max-width: 1000px;
   width: 100%;
-  background: #13914c;
+  background: var(--footer-background);
   bottom: 0px;
   height: 60px;
   border-top-left-radius: 50px;

@@ -1,18 +1,9 @@
-body {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 0;
-  background: #201519;
-}
-
-main {
-  gap: 20px;
-  padding-top: 100px;
-  padding-bottom: 80px;
-}
-
-.flexContainer {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
+/**
+* Only for importing each other css file. 
+*/
+@import "main.css";
+@import "components/header.css";
+@import "components/card.css";
+@import "components/button.css";
+@import "components/footer.css";
+@import "components/profile.css";
