@@ -2,6 +2,7 @@
   position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  grid-template-rows: 20% 1fr 1 fr;
   align-self: center;
   background: linear-gradient(
     to bottom right,
@@ -9,22 +10,33 @@
     var(--gradient-color-2)
   );
   width: 800px;
+  color: var(--profile-text);
 }
 
 .darkmode-toggle {
-  /* position: absolute; */
+  display: flex;
+  grid-row-start: 3;
+  justify-content: space-around;
+}
+
+.about-me {
+  grid-row-start: 2;
+  grid-column-start: 1;
+  grid-column: span 2;
+  margin: 10px;
 }
 
 .profile-image {
   width: 80px;
   border: 2px solid;
   border-radius: 40px;
+  margin: 10px;
 }
 
 /* The switch - the box around the slider */
 .switch {
-  /* position: relative;
-  display: inline-block; */
+  position: relative;
+  display: inline-block;
   width: 60px;
   height: 34px;
 }
@@ -38,7 +50,7 @@
 
 /* The slider */
 .slider {
-  /* position: absolute; */
+  position: absolute;
   cursor: pointer;
   top: 0;
   left: 0;
@@ -50,7 +62,7 @@
 }
 
 .slider:before {
-  /* position: absolute; */
+  position: absolute;
   content: "";
   height: 26px;
   width: 26px;

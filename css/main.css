@@ -10,6 +10,7 @@
   --tags-color: black;
   --footer-background: #26eb34;
   --card-text: white;
+  --profile-text: white;
 }
 
 .dark-mode {
@@ -24,6 +25,7 @@
   --tags-color: black;
   --footer-background: #13914c;
   --card-text: black;
+  --profile-text: bakck;
 }
 
 body {
