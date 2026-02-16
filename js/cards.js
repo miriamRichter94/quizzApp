@@ -125,13 +125,9 @@ mainContainer.addEventListener("click", (event) => {
     const card = answerButton.closest(".quizzCard");
     const answer = card.querySelector('[data-js="cardAnswer"]');
 
-    // Check if answer is currently hidden
-    if (answer.hasAttribute("hidden")) {
-      answer.removeAttribute("hidden");
-      answerButton.textContent = "Hide answer";
-    } else {
-      answer.setAttribute("hidden", "");
-      answerButton.textContent = "Show answer";
-    }
+    answer.toggleAttribute("hidden");
+    answerButton.textContent = answer.hasAttribute("hidden")
+      ? "Show answer"
+      : "Hide answer";
   }
 });
