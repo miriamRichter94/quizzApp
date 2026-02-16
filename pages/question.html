@@ -1,1 +1,22 @@
-<h1 style="color: white">For Creeating a question</h1>
+<!-- The form needs still to be created-->
+<section class="question-section">
+  <h2 id="title">Creating a new Question</h2>
+  <form aria-labelledby="title" class="question-form">
+    <p id="description" class="form-description">
+      This is for creating a new Question. You have to input a Question, the
+      Answer and the Tags. <br />
+      Please Insert the tags seperated by a comma.
+    </p>
+    <fieldset aria-describedby="description">
+      <lable for="question"> Question</lable>
+      <input type="text" id="question" required />
+
+      <lable for="answer"> Answer</lable>
+      <input type="text" id="answer" required />
+
+      <lable for="tags"> Tags</lable>
+      <input type="text" id="tags" required />
+    </fieldset>
+    <button>Save Question</button>
+  </form>
+</section>

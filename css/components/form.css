@@ -1,0 +1,26 @@
+.question-section {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-self: center;
+  background: linear-gradient(
+    to bottom right,
+    var(--gradient-color-1),
+    var(--gradient-color-2)
+  );
+  width: 800px;
+  color: var(--profile-text);
+  padding: 10px;
+}
+
+.question-section > h2 {
+  align-self: center;
+}
+
+fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 10px;
+}
