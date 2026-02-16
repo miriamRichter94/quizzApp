@@ -1,15 +1,10 @@
-@import "../styles.css";
-@import "card.css";
-@import "button.css";
-@import "footer.css";
-
 header {
   z-index: 1;
   display: flex;
   position: fixed;
   flex-direction: column;
-  background-color: #13914c;
-  box-shadow: 2px 2px darkslategray;
+  background-color: var(--header-background);
+  box-shadow: 2px 2px var(--header-shadow);
   border-bottom-left-radius: 50px;
   border-bottom-right-radius: 50px;
   height: 70px;

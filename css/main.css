@@ -1,0 +1,46 @@
+:root {
+  --body-background: #e899b6;
+  --gradient-color-1: #2b3331;
+  --gradient-color-2: #467049;
+  --header-background: #26eb34;
+  --header-shadow: darkslategray;
+  --tags-border: black;
+  --tags-background: lightgray;
+  --tags-shadow: darkslategray;
+  --tags-color: black;
+  --footer-background: #26eb34;
+  --card-text: white;
+}
+
+.dark-mode {
+  --body-background: #201519;
+  --gradient-color-1: #5f8379;
+  --gradient-color-2: white;
+  --header-background: #13914c;
+  --header-shadow: darkslategray;
+  --tags-border: darkslategrey;
+  --tags-background: lightgray;
+  --tags-shadow: grey;
+  --tags-color: black;
+  --footer-background: #13914c;
+  --card-text: black;
+}
+
+body {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0;
+  background: var(--body-background);
+}
+
+main {
+  gap: 20px;
+  padding-top: 100px;
+  padding-bottom: 80px;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}

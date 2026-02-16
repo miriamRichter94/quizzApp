@@ -50,7 +50,7 @@ export function loadCards(route) {
   for (const card of cards) {
     if (route == "home" || (route == "bookmarks" && card.bookmarked)) {
       const section = document.createElement("section");
-      section.classList.add("quizzCard", "flexContainer");
+      section.classList.add("quizzCard", "flex-container");
       section.dataset.index = cardIndex;
 
       const bookMarkButton = document.createElement("button");
@@ -70,14 +70,17 @@ export function loadCards(route) {
 
       const cardAnswer = document.createElement("div");
       cardAnswer.classList.add("cardAnswer");
+      cardAnswer.setAttribute("hidden", "");
+      cardAnswer.setAttribute("data-js", "cardAnswer");
       cardAnswer.textContent = card.answer;
 
       const answerButton = document.createElement("button");
-      answerButton.classList.add("show-answer");
+      answerButton.classList.add("answer-button");
+      answerButton.setAttribute("data-js", "answerButton");
       answerButton.textContent = "Show answer";
 
       const tagsBox = document.createElement("div");
-      tagsBox.classList.add("tagsBox", "flexContainer");
+      tagsBox.classList.add("tags-container", "flex-container");
 
       mainContainer.append(section);
       section.append(
@@ -90,6 +93,7 @@ export function loadCards(route) {
 
       for (const tag of card.tags) {
         const tagElement = document.createElement("p");
+        tagElement.classList.add("tag-box");
         tagElement.textContent = tag;
         tagsBox.append(tagElement);
       }
@@ -98,8 +102,8 @@ export function loadCards(route) {
   }
 }
 
-// Bookmark functionallity.
 mainContainer.addEventListener("click", (event) => {
+  // Bookmark functionallity.
   const bookMarkButton = event.target.closest('[data-js="bookMarkButton"]');
 
   if (bookMarkButton) {
@@ -112,5 +116,22 @@ mainContainer.addEventListener("click", (event) => {
     // Changing the Bookmark button Image
     const img = bookMarkButton.querySelector('[data-js="bookMarkImg"]');
     img.src = imgSrc[cards[index].bookmarked];
+  }
+
+  // Toggle answer functionality
+  const answerButton = event.target.closest('[data-js="answerButton"]'); // ← One data-js!
+
+  if (answerButton) {
+    const card = answerButton.closest(".quizzCard");
+    const answer = card.querySelector('[data-js="cardAnswer"]');
+
+    // Check if answer is currently hidden
+    if (answer.hasAttribute("hidden")) {
+      answer.removeAttribute("hidden");
+      answerButton.textContent = "Hide answer";
+    } else {
+      answer.setAttribute("hidden", "");
+      answerButton.textContent = "Show answer";
+    }
   }
 });
