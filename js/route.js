@@ -1,5 +1,6 @@
 import { loadCards } from "./cards.js";
 import { initProfile } from "./profile.js";
+import { initQuestion } from "./question.js";
 
 /*
  * Configuration of routes for easy access to change
@@ -20,6 +21,7 @@ const routes = {
     title: "Create Question",
     page: "pages/question.html",
     linkImg: "assets/menu/question_active.png",
+    init: initQuestion,
   },
   profile: {
     title: "Profile",
