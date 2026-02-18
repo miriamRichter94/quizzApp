@@ -1,35 +1,6 @@
-import { loadCards } from "./cards.js";
-import { initProfile } from "./profile.js";
-import { initQuestion } from "./question.js";
-
-/*
- * Configuration of routes for easy access to change
- * Works as lookup table.
- */
-const routes = {
-  home: {
-    title: "Home",
-    page: "pages/home.html",
-    linkImg: "assets/menu/home_active.png",
-  },
-  bookmarks: {
-    title: "Bookmarks",
-    page: "pages/bookmark.html",
-    linkImg: "assets/menu/bookmark_active.png",
-  },
-  question: {
-    title: "Create Question",
-    page: "pages/question.html",
-    linkImg: "assets/menu/question_active.png",
-    init: initQuestion,
-  },
-  profile: {
-    title: "Profile",
-    page: "pages/profile.html",
-    linkImg: "assets/menu/user_active.png",
-    init: initProfile,
-  },
-};
+import { loadMainCards } from "./home.js";
+import { routes } from "./utils/utils.js";
+import { loadBookmarkedCards } from "./bookmark.js";
 
 /*
  * Load Page function
@@ -65,8 +36,11 @@ export async function loadPage(route) {
   document.getElementById("content").innerHTML = html;
   // NOW the HTML is in the DOM, so run your function!
 
-  if (route === "home" || route === "bookmarks") {
-    loadCards(route); // Your function here
+  if (route === "home") {
+    loadMainCards(); // Your function here
+  }
+  if (route === "bookmarks") {
+    loadBookmarkedCards();
   }
 
   // Call init function if it exists
@@ -79,6 +53,7 @@ export async function loadPage(route) {
 
 // Setting the right Icon active
 function updateLinkImage(route) {
+  // first we set every icon to unchoosen
   document.querySelector('[data-js="home-picture"]').src =
     "assets/menu/home.png";
   document.querySelector('[data-js="bookmarks-picture"]').src =
@@ -88,6 +63,7 @@ function updateLinkImage(route) {
   document.querySelector('[data-js="profile-picture"]').src =
     "assets/menu/user.png";
 
+  // based on the route we change the menu icon to a acitve one
   const linkImage = document.querySelector(`[data-js="${route}-picture"]`);
   const routeConfig = routes[route];
 
